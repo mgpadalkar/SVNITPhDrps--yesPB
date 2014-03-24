@@ -1,0 +1,130 @@
+%------------------------------------------------------------------------------
+% A template for using the SVNITPhDrpsPB.cls (v 14.03.20) class file. This is based on the
+% template used by Reema Patel.
+%------------------------------------------------------------------------------
+% author : Milind Padalkar (milind.padalkar@gmail.com)
+% motivation: All my friends in M.Tech. & PhD
+% first created : Created as SVNITPhDReport.cls sometime in 2010.
+% last modified on : 20-03-2014
+% version : 14.03.20
+%------------------------------------------------------------------------------
+% This template is provided without any warranty and should be modified by the
+% user as per requirement.
+%------------------------------------------------------------------------------
+% To include the color for hyperlinks set the line 96 in SVNITPhDrpsPB.cls as 
+% "colorlinks=true," from "colorlinks=false,".
+%------------------------------------------------------------------------------
+% Strictly compile using: LaTeX=>PS=>PDF
+%------------------------------------------------------------------------------
+
+\documentclass{SVNITPhDrpsPB}
+
+% Necessary packages (Do not comment these)
+\usepackage{fancyhdr}
+\usepackage{longtable}
+\usepackage{array}
+
+%Preamble
+
+%Do not omit the following fields
+\rpsNumber{Third} %RPS number
+\thesisType{Progress Seminar} %Type (Ex. Thesis)
+\atitle{Mr.} %Author title. Valid entries : Mr. Ms. Mrs.
+\author{My Name} %Author name
+\title{My RPS report title} %Report title
+\dept{Department Name} %Department name
+\regno{DYYCOXXX} %Registration number 
+\semester{Odd} %Even or odd
+\stitleI{Dr.} %Supervisor title. Examples : Dr., Prof.
+\supervisorI{Supervisor's Name} %Supervisor name
+\supervisorA{NIT -- Surat} %Supervisor's affiliation / Institution
+\addressInstN{Sardar Vallabhbhai} %Institute name line1
+\addressInstI{S. V.} %Institute name's initials
+\addressInstD{National Institute of Technology} %Institute name line2
+\addressInstP{Surat} %Institute name line3 (Place)
+\acMonth{December} %Month
+\acYear{2013 -- 2014} %Academic Year
+\calYear{2013} %Calander Year
+\instlogo{./Figures/SVNITlogo} %Institute logo file path
+
+% User packages (You can add as many as you want)
+\usepackage{amssymb}  %  for double struck characters
+\usepackage{subfigure} % for subfigures
+
+\usepackage{amsmath}
+
+% User commands
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\newcommand{\BigO}[1]{\ensuremath{\operatorname{O}\bigl(#1\bigr)}}
+
+
+%\usepackage{enumitem}
+\begin{document}
+
+\addpageborder
+
+%%Create the title page
+\maketitle
+
+\pagenumbering{roman}
+\setcounter{page}{2}
+
+%Create the Table1 (Admin) page
+\putTableAdmin{\input{./Tables/tableAdminData}}
+
+%Create the Table2 (Technical) page
+\putTableTech{\input{./Tables/tableTechData}}
+
+% Create the decleration page
+\putdecleration
+
+% Create the approval page
+\putapproval
+
+% Create the acknowledgement page
+\putsvnitack{
+\input{./Chapters/Ack}
+}
+
+% List of publications
+\input{./Chapters/Publication}
+
+% Create the abstract page
+\putsvnitabstract{
+\input{./Chapters/Abstract}
+}
+
+% Table of contents
+\tableofcontents\newpage
+
+% List of figures
+%\addcontentsline{toc}{section}{List of Figures} % Entery in ToC
+\listoffigures\newpage
+
+% List of tables
+%\addcontentsline{toc}{section}{List of Tables} % Entry in ToC
+\listoftables\newpage
+
+\clearpageborder
+
+% To change page number and style at any time, use the following
+%\pagenumbering{roman}
+%\setcounter{page}{13}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% Your RPS chapters
+
+%%Chapter 1
+\chapter{Introduction \& Motivation}
+\input{./Chapters/ch1}
+
+% Bibliography
+\bibliographystyle{IEEEtran}
+\bibliography{SVNITPhDbibtex}
+\nocite{*}
+
+\end{document}
