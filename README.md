@@ -5,7 +5,7 @@ LaTeX template for PhD RPS report at SVNIT. The initial pages have blue border.
 
 Last modified on: 20-03-2014
 
-A template for using the SVNITPhDrpsPB.cls (v 14.03.20) class file. This is based on the template used by Dr. Shailaja Patil.
+A template for using the SVNITPhDrpsPB.cls (v 14.03.20) class file.
 
 
 author : Milind Padalkar
