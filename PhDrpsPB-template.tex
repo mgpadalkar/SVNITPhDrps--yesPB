@@ -5,8 +5,8 @@
 % author : Milind Padalkar (milind.padalkar@gmail.com)
 % motivation: All my friends in M.Tech. & PhD
 % first created : Created as SVNITPhDReport.cls sometime in 2010.
-% last modified on : 20-03-2014
-% version : 14.03.20
+% last modified on : 22-04-2015
+% version : 15.04.22 (Brijesh B. Mehta: Option added to start new chapter on odd page, see line 21)
 %------------------------------------------------------------------------------
 % This template is provided without any warranty and should be modified by the
 % user as per requirement.
@@ -18,6 +18,7 @@
 %------------------------------------------------------------------------------
 
 \documentclass{SVNITPhDrpsPB}
+%\documentclass[newchapterodd]{SVNITPhDrpsPB} % Uncomment to start every new chapter on odd page. Do not forget to comment previous line 20.
 
 % Necessary packages (Do not comment these)
 \usepackage{fancyhdr}
@@ -117,6 +118,10 @@
 \setcounter{page}{1}
 
 % Your RPS chapters
+
+%%Chapter 1
+\chapter{Introduction \& Motivation}
+\input{./Chapters/ch1}
 
 %%Chapter 1
 \chapter{Introduction \& Motivation}

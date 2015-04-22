@@ -4,15 +4,26 @@
 % author : Milind Padalkar (milind.padalkar@gmail.com)
 % motivation: All my friends in M.Tech. & PhD
 % first created : Created as SVNITPhDReport.cls sometime in 2010.
-% last modified on : 20-03-2014
-% version : 14.03.20
+% last modified on : 22-04-2015
+% version : 15.04.22 (Brijesh B. Mehta: Option added to start new chapter on odd page)
 % Adds page border to initial pages. Requires compilation using LaTeX=>PS=PDF
 %------------------------------------------------------------------------------
 % This class file is provided without any warranty and may be modified by the users at their own risk.
 %------------------------------------------------------------------------------
 
+\LoadClass[12pt,twoside]{report}
 
-\LoadClass[12pt]{report}
+%-------------------------------------------------------
+% added by Brijesh B. Mehta (brijeshbmehta@gmail.com)
+% to print new chapter on odd page
+\DeclareOption{newchapterodd}{
+	\let\originalchapter=\chapter
+	\renewcommand\chapter{\cleardoublepage\originalchapter}
+}
+%-------------------------------------------------------
+
+% Now we'll execute any options passed in
+\ProcessOptions\relax
 
 %User Created Fields
 \makeatletter
@@ -212,7 +223,7 @@
 						\textbf{
 							\large
 							\textcolor{black}{\@atitle\ \@author \\
-							(\small Admission No.:\ {\expandafter\uppercase\expandafter{\@regno}}) % % 
+							\small (Admission No.:\ {\expandafter\uppercase\expandafter{\@regno}}) % % 
 							}
 							\normalsize
 						}
@@ -232,7 +243,7 @@
 				\textbf{
 					\Large
 					\textcolor{black}{\@stitleI\ \@supervisorI}\\
-					(\small{Department of \@dept,\ \@supervisorA})
+					\small{(Department of \@dept,\ \@supervisorA)}
 					\normalsize
 				}
 			} \\ \vspace*{30pt}
@@ -402,7 +413,7 @@
 									I also declare that I have read all the instructions given below.
 									\vspace*{20pt}
 									\\
-									\makebox[150px]{\hrulefill}
+									\makebox[85px]{\hrulefill}
 									\\
 									(\@author)
 									\setstretch{1.5}
@@ -451,7 +462,7 @@
 							Approval Sheet
 						\end{center}
 						\vspace*{10pt}
-						This is to state that the Thesis entitled \textbf{\@title} submitted by \@atitle\ \@author\ (Admission No: \@regno) is approved for the award of the degree of Doctor of Philosophy in \@dept.
+						This is to state that the Thesis entitled \textbf{\@title} submitted by \@atitle\ \@author\ (Admission No: \@regno) is approved. %for the award of the degree of Doctor of Philosophy in \@dept.
 						\vspace*{10pt}
 						\begin{center}
 							\textbf{\@thesisType\ Evaluation Committee}
@@ -521,6 +532,15 @@
 			\newpage
 		}
 \makeatother
+
+%%-------------------------------------------------------
+%% added by Brijesh B. Mehta (brijeshbmehta@gmail.com)
+%% to print new chapter on odd page
+%\DeclareOption{newchapterleft}{
+%\let\originalchapter=\chapter
+%\renewcommand\chapter{\cleardoublepage\originalchapter}
+%}
+%%-------------------------------------------------------
 
 % place bibliography in table of contents
 %
